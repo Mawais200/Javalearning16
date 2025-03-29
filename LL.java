@@ -24,6 +24,20 @@ public class LL {
         head = newNode;
     }
 
+    // Add data to the end of the list
+    public void addLast(String data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        Node current = head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        current.next = newNode;
+    }
+
     // Print out the contents of the linked list
     public void printList() {
         Node current = head;
@@ -39,8 +53,7 @@ public class LL {
         list.addFirst("Apple");
         list.addFirst("Banana");
         list.addFirst("Cherry");
-        list.printList(); // Output: Cherry Banana Apple
+        list.addLast("Date");
+        list.printList(); // Output: Cherry Banana Apple Date
     }
 }
-
-
