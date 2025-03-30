@@ -37,15 +37,39 @@ public class LL {
         }
         current.next = newNode;
     }
+//Delete first
+public void deletefisrt(String data){
+    if (head == null) {
+        System.out.println("List is empty");
+      return;
+    }
+    head =head.next;
+}
+    // Delete the last node
+    public void deleteLast() {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+        Node secondLast = head;
+        while (secondLast.next.next != null) {
+            secondLast = secondLast.next;
+        }
+        secondLast.next = null;
+    }
 
     // Print out the contents of the linked list
     public void printList() {
         Node current = head;
         while (current != null) {
-            System.out.print(current.data + " ");
+            System.out.print(current.data + " -> ");
             current = current.next;
         }
-        System.out.println();
+        System.out.println("null");
     }
 
     public static void main(String[] args) {
@@ -54,6 +78,9 @@ public class LL {
         list.addFirst("Banana");
         list.addFirst("Cherry");
         list.addLast("Date");
-        list.printList(); // Output: Cherry Banana Apple Date
+        list.printList(); // Output: Cherry -> Banana -> Apple -> Date -> null
+
+        list.deleteLast();
+        list.printList(); // Output: Cherry -> Banana -> Apple -> null
     }
 }
