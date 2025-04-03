@@ -37,14 +37,20 @@ public class LL {
         }
         current.next = newNode;
     }
-//Delete first
-public void deletefisrt(String data){
-    if (head == null) {
-        System.out.println("List is empty");
-      return;
+
+    // Delete the first node
+    public void deleteFirst() {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+        head = head.next;
     }
-    head =head.next;
-}
+
     // Delete the last node
     public void deleteLast() {
         if (head == null) {
@@ -73,14 +79,14 @@ public void deletefisrt(String data){
     }
 
     public static void main(String[] args) {
-        LL list = new LL();
+        LL list = new LinkedList();
         list.addFirst("Apple");
         list.addFirst("Banana");
         list.addFirst("Cherry");
         list.addLast("Date");
         list.printList(); // Output: Cherry -> Banana -> Apple -> Date -> null
-
         list.deleteLast();
-        list.printList(); // Output: Cherry -> Banana -> Apple -> null
-    }
+        list.deleteFirst();
+        list.printList(); // Output: Banana -> Apple -> Date -> null
+    }
 }
